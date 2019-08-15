@@ -1,6 +1,15 @@
 # About this Repo
 This is the Git repo of the Docker [official image](https://docs.docker.com/docker-hub/official_repos/) for [rails] (https://registry.hub.docker.com/_/rails/) and [mysql](https://hub.docker.com/_/mysql/). See these page for the full readme on how to use this Docker image and for information regarding contributing and issues.
 
+## TL;DR
+
+```sh
+docker-compose run app rails new . --force --database=mysql --skip-bundle
+cp database.yml.sample config/database.yml
+docker-compose up -d --build
+# Open http://localhost:3000
+```
+
 ## Pre-Requirements
 First install `docker`, `docker compose` for your machine and start it. How this is done is very well documented all over the internet.
 
