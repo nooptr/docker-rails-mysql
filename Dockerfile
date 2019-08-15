@@ -1,4 +1,4 @@
-FROM ruby:2.3.0
+FROM ruby:2.6.3
 ENV LANG C.UTF-8
 
 RUN apt-get update && \
@@ -8,7 +8,7 @@ RUN apt-get update && \
                        --no-install-recommends && \
     rm -rf /var/lib/apt/lists/*
 
-#Cache bundle install
+# Cache bundle install
 WORKDIR /tmp
 ADD ./Gemfile Gemfile
 ADD ./Gemfile.lock Gemfile.lock
