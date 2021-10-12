@@ -5,9 +5,16 @@ RSpec.describe "sum", type: :model do
     let(:a) { 1 }
     let(:b) { 2 }
 
-    context "正の数の足し算" do
+    context "plus + plus" do
       it do
         expect(a + b).to eq 3
+      end
+    end
+
+    context "plus + minus" do
+      let(:b) { -2 }
+      it do
+        expect(a + b).to eq -1
       end
     end
   end
