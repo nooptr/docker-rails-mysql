@@ -1,0 +1,18 @@
+name: CI
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-lates
+  rspec:
+    steps:
+      - name: Test
+        run: docker compose up && bundle exec rspec -f j -o tmp/rspec_results.json -f p
+      - name: RSpec Report
+        uses: SonicGarden/rspec-report-action@v1
+        with:
+          token: ${{secrets.GITHUB_TOKEN}}
+          json-path: tmp/rspec_results.json
+        if: always()
